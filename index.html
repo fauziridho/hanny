@@ -16,14 +16,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* === PEMBARUAN: PALET WARNA PUTIH LEMBUT (APPLE LIGHT MODE) === */
         :root {
-            --color-background: #F9F9F9; /* Putih lembut, tidak menyilaukan */
-            --color-surface: #FFFFFF;    /* Putih murni untuk card */
-            --color-text-primary: #1D1D1F; /* Hitam khas Apple */
-            --color-text-secondary: #6E6E73; /* Abu-abu untuk sub-teks */
-            --color-accent: #007AFF;      /* Biru khas Apple */
-            --color-border: #E5E5E5;      /* Abu-abu sangat terang untuk garis pemisah */
+            --color-background: #F9F9F9;
+            --color-surface: #FFFFFF;
+            --color-text-primary: #1D1D1F;
+            --color-text-secondary: #6E6E73;
+            --color-accent: #007AFF;
+            --color-border: #E5E5E5;
 
             --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --font-size-base: 16px;
@@ -41,7 +40,7 @@
             --spacing-xl: 4rem;
             --spacing-2xl: 6rem;
 
-            --border-radius: 16px; /* Radius lebih besar untuk kesan lebih lembut */
+            --border-radius: 16px;
             --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
             --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             --transition-fast: all 0.2s ease-in-out;
@@ -91,7 +90,7 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            background: rgba(249, 249, 249, 0.8); /* Latar belakang header semi-transparan */
+            background: rgba(249, 249, 249, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid transparent;
@@ -122,7 +121,6 @@
         body.nav-open .hamburger-btn span:nth-child(2) { opacity: 0; }
         body.nav-open .hamburger-btn span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* Penyesuaian Aura Kursor untuk Tema Terang */
         #cursor-aura {
             position: fixed;
             width: 500px;
@@ -252,20 +250,20 @@
             <h2 class="fade-in">Galeri Karya Seni Cahaya</h2>
             <div class="gallery-grid">
                 <div class="gallery-item fade-in" style="transition-delay: 100ms;">
-                    <img src="https://images.unsplash.com/photo-1581333122152-5b21a71b453e?w=800&auto=format&fit=crop" alt="Neon sign 'Good Vibes Only' di dinding bata">
+                    <img src="IMG_7530.jpeg" alt="Contoh karya neon box 1">
                     <div class="overlay"><h4>Kafe Urban</h4><p>Jakarta Selatan</p></div>
                 </div>
                 <div class="gallery-item fade-in" style="transition-delay: 200ms;">
-                    <img src="https://images.unsplash.com/photo-1543974330-822e839f3468?w=800&auto=format&fit=crop" alt="Neon sign berbentuk petir di dinding gelap">
+                    <img src="IMG_7531.jpeg" alt="Contoh karya neon box 2">
                     <div class="overlay"><h4>Toko Retail Modern</h4><p>Pusat Jakarta</p></div>
                 </div>
                 <div class="gallery-item fade-in" style="transition-delay: 300ms;">
-                    <img src="https://images.unsplash.com/photo-1599580506231-f3c0d18b6a22?w=800&auto=format&fit=crop" alt="Neon sign tulisan 'Create' di kantor kreatif">
+                    <img src="IMG_7532.jpeg" alt="Contoh karya neon box 3">
                     <div class="overlay"><h4>Ruang Kerja Kreatif</h4><p>Jakarta Timur</p></div>
                 </div>
                  <div class="gallery-item fade-in" style="transition-delay: 400ms;">
-                    <img src="https://images.unsplash.com/photo-1611243094128-2651953a4e59?w=800&auto=format&fit=crop" alt="Neon sign custom untuk acara pernikahan">
-                    <div class="overlay"><h4>Dekorasi Acara</h4><p>Acara Korporat & Pernikahan</p></div>
+                    <img src="IMG_7533.jpeg" alt="Contoh karya neon box 4">
+                    <div class="overlay"><h4>Instalasi Seni</h4><p>Acara & Pameran</p></div>
                 </div>
             </div>
         </section>
@@ -360,7 +358,6 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        // Menambahkan delay staggered untuk animasi yang lebih organik
                         entry.target.style.transitionDelay = `${index * 100}ms`;
                         entry.target.classList.add('is-visible');
                         observer.unobserve(entry.target);
@@ -392,7 +389,6 @@
                     body.classList.toggle('is-scrolled', !entry.isIntersecting);
                 });
             }, { rootMargin: "-100px 0px 0px 0px" });
-            // Amati elemen pertama setelah header, yaitu hero section
             const firstSection = document.querySelector('main section:first-of-type');
             if(firstSection) {
                 scrollObserver.observe(firstSection);
@@ -401,3 +397,5 @@
     </script>
 </body>
 </html>
+
+   
