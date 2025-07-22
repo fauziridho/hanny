@@ -16,15 +16,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* === PEMBARUAN: ESTETIKA VISUAL ALA APPLE === */
         :root {
-            --color-background: #F9F9F9;
-            --color-surface: #FFFFFF;
-            --color-text-primary: #1D1D1F;
-            --color-text-secondary: #6E6E73;
-            --color-accent: #007AFF;
-            --color-border: #E5E5E5;
+            /* Gradasi Warna & Efek Kaca */
+            --color-background-gradient: linear-gradient(180deg, #F9F9F9 0%, #F0F2F5 100%);
+            --color-surface-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 242, 245, 0.7));
+            --color-accent-gradient: linear-gradient(90deg, #007AFF, #00C4B4);
+            --color-text-primary: #1C2526;
+            --color-text-secondary: #6B7280;
+            --color-border: rgba(0, 0, 0, 0.08);
 
+            /* Shadow & Blur */
+            --shadow-subtle: 0 6px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-glass: 0 8px 32px rgba(0, 122, 255, 0.15);
+            --backdrop-blur: blur(20px);
+            
+            /* Tipografi & Animasi */
             --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Apple-like easing */
+            
+            /* Ukuran & Jarak */
             --font-size-base: 16px;
             --font-size-sm: 0.875rem;
             --font-size-md: 1rem;
@@ -32,30 +43,19 @@
             --font-size-xl: 1.5rem;
             --font-size-2xl: 2.25rem;
             --font-size-3xl: 3.5rem;
-
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
             --spacing-md: 1.5rem;
             --spacing-lg: 2.5rem;
             --spacing-xl: 4rem;
             --spacing-2xl: 6rem;
-
             --border-radius: 16px;
-            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --transition-fast: all 0.2s ease-in-out;
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         html { font-size: var(--font-size-base); }
 
         body {
-            background-color: var(--color-background);
+            background: var(--color-background-gradient);
             color: var(--color-text-primary);
             font-family: var(--font-family-sans);
             line-height: 1.6;
@@ -64,129 +64,130 @@
             overflow-x: hidden;
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        section {
-            padding: var(--spacing-2xl) 0;
-        }
+        .container { width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 var(--spacing-md); }
+        section { padding: var(--spacing-2xl) 0; }
         
-        h1, h2, h3 { line-height: 1.2; font-weight: 700; color: var(--color-text-primary); letter-spacing: -0.02em; }
+        h1, h2, h3 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
         h1 { font-size: var(--font-size-3xl); }
         h2 { font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-lg); }
-        h3 { font-size: var(--font-size-xl); margin-bottom: var(--spacing-sm); }
+        h3 { font-size: var(--font-size-xl); margin-bottom: var(--spacing-md); }
         p { font-size: var(--font-size-lg); color: var(--color-text-secondary); max-width: 720px; }
-        .text-accent { color: var(--color-accent); }
+        .text-accent { background: var(--color-accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         .main-header {
-            padding: var(--spacing-sm) 0;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
-            background: rgba(249, 249, 249, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-        body.is-scrolled .main-header {
-            border-bottom-color: var(--color-border);
+            background: rgba(249, 249, 249, 0.75);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border-bottom: 1px solid var(--color-border);
         }
 
-        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--color-text-primary); letter-spacing: -0.05em; }
-        .logo span { color: var(--color-accent); }
-        .nav-wrapper { display: flex; align-items: center; gap: var(--spacing-lg); }
-        .main-nav { display: flex; align-items: center; gap: var(--spacing-sm); }
-        .main-nav a { color: var(--color-text-secondary); text-decoration: none; padding: var(--spacing-xs) var(--spacing-sm); font-weight: 500; transition: var(--transition-fast); position: relative; }
+        .main-header .container, .nav-wrapper, .main-nav { display: flex; align-items: center; }
+        .main-header .container { justify-content: space-between; }
+        .nav-wrapper { gap: var(--spacing-lg); }
+        .main-nav { gap: var(--spacing-md); }
+
+        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--color-text-primary); }
+        .logo span { background: var(--color-accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .main-nav a { color: var(--color-text-secondary); text-decoration: none; padding: 0.5rem; font-weight: 500; transition: color 0.2s; position: relative; }
         .main-nav a:hover { color: var(--color-text-primary); }
         .main-nav a.is-active { color: var(--color-text-primary); font-weight: 600; }
-        .main-nav a.is-active::after { content: ''; position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; background-color: var(--color-accent); border-radius: 50%; }
+        .main-nav a.is-active::after { content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background: var(--color-accent-gradient); border-radius: 50%; }
         
-        .btn { display: inline-block; padding: 12px 28px; font-size: var(--font-size-sm); font-weight: 600; border-radius: var(--border-radius); text-decoration: none; cursor: pointer; transition: var(--transition-smooth); border: 1px solid transparent; text-align: center; }
-        .btn-primary { background-color: var(--color-accent); color: #fff; }
-        .btn-primary:hover { background-color: #0066CC; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 122, 255, 0.2); }
-        .btn-primary:active { transform: translateY(-1px); }
-        
-        .hamburger-btn { display: none; flex-direction: column; justify-content: space-around; width: 24px; height: 24px; background: transparent; border: none; cursor: pointer; z-index: 1010; }
-        .hamburger-btn span { width: 24px; height: 2px; background: var(--color-text-primary); border-radius: 2px; transition: all 0.3s ease; }
-        body.nav-open .hamburger-btn span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        body.nav-open .hamburger-btn span:nth-child(2) { opacity: 0; }
-        body.nav-open .hamburger-btn span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .btn { display: inline-block; padding: 14px 32px; font-size: 1rem; font-weight: 600; border-radius: var(--border-radius); text-decoration: none; cursor: pointer; transition: var(--transition-smooth); border: none; text-align: center; }
+        .btn-primary {
+            background: var(--color-accent-gradient);
+            color: #fff;
+            box-shadow: var(--shadow-subtle);
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary:hover::before { left: 100%; }
+        .btn-primary:hover { box-shadow: var(--shadow-glass); }
 
+        .hamburger-btn { display: none; }
         #cursor-aura {
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 122, 255, 0.08), transparent 60%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s, transform 0.1s linear;
+            position: fixed; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0, 122, 255, 0.1), transparent 70%);
+            border-radius: 50%; pointer-events: none; z-index: -1; transform: translate(-50%, -50%);
+            transition: opacity 0.5s, transform 0.1s linear;
         }
         
         .hero { padding-top: calc(var(--spacing-2xl) + 80px); text-align: center; min-height: 90vh; display: flex; align-items: center; justify-content: center; }
         .hero h1 { max-width: 900px; margin-bottom: var(--spacing-md); }
         .hero p { font-size: var(--font-size-lg); margin-bottom: var(--spacing-lg); max-width: 650px; margin-left: auto; margin-right: auto; }
 
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg); }
-        .feature-card { background: var(--color-surface); padding: var(--spacing-lg); border-radius: var(--border-radius); border: 1px solid var(--color-border); text-align: left; transition: var(--transition-smooth); }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-subtle); border-color: transparent; }
-        .feature-card svg { width: 40px; height: 40px; margin-bottom: var(--spacing-md); color: var(--color-accent); }
-        .feature-card h3 { color: var(--color-text-primary); }
-        .feature-card p { font-size: var(--font-size-md); color: var(--color-text-secondary); }
+        .feature-card, .cta-section {
+            background: var(--color-surface-gradient);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid var(--color-border);
+            border-radius: 24px;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+        }
+        .feature-card:hover, .cta-section:hover { transform: translateY(-8px); box-shadow: var(--shadow-glass); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); }
+        .feature-card svg { width: 40px; height: 40px; margin-bottom: var(--spacing-md); background: var(--color-accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-md); }
-        .gallery-item { position: relative; overflow: hidden; border-radius: var(--border-radius); cursor: pointer; aspect-ratio: 4 / 3; background-color: #e0e0e0; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease-out; }
-        .gallery-item:hover img { transform: scale(1.05); }
-        .gallery-item .overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: var(--spacing-md); background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); color: white; transform: translateY(100%); transition: transform 0.3s ease-in-out; }
-        .gallery-item:hover .overlay { transform: translateY(0); }
-        .overlay h4 { font-size: var(--font-size-lg); margin-bottom: 0.2rem; }
-        .overlay p { font-size: var(--font-size-sm); color: #ccc; }
-
-        .process-steps { display: flex; flex-direction: column; gap: var(--spacing-lg); max-width: 800px; margin: var(--spacing-xl) auto 0 auto; }
-        .process-step { display: flex; align-items: flex-start; gap: var(--spacing-md); }
-        .step-number { font-size: 3rem; font-weight: 800; color: var(--color-accent); line-height: 1; min-width: 60px; text-align: center; }
-        .step-content h3 { margin-bottom: var(--spacing-xs); }
-        .step-content p { font-size: var(--font-size-md); }
-
-        .cta-section { background-color: var(--color-surface); border-radius: var(--border-radius); padding: var(--spacing-xl); text-align: center; border: 1px solid var(--color-border); }
-        .cta-section h2 { margin-bottom: var(--spacing-md); }
-        .cta-section p { margin-bottom: var(--spacing-lg); max-width: 600px; margin-left: auto; margin-right: auto;}
-
-        .main-footer { padding: var(--spacing-lg) 0; border-top: 1px solid var(--color-border); text-align: center; }
-        .main-footer p { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
-        .main-footer .logo { margin-bottom: var(--spacing-sm); display: inline-block; }
-        .social-links { margin-top: var(--spacing-sm); }
-        .social-links a { color: var(--color-text-secondary); margin: 0 1rem; text-decoration: none; transition: color 0.2s ease; }
-        .social-links a:hover { color: var(--color-accent); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); }
+        .gallery-item {
+            position: relative; overflow: hidden; border-radius: var(--border-radius);
+            aspect-ratio: 4 / 3; background-color: #e0e0e0; will-change: transform;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
         
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1); }
+        .fade-in {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
         .fade-in.is-visible { opacity: 1; transform: translateY(0); }
 
+        .main-nav a:focus, .btn:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            :root { --font-size-3xl: 2.5rem; --font-size-2xl: 2rem; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
-            :root { --font-size-2xl: 1.75rem; --font-size-3xl: 2.5rem; }
+            :root { --font-size-3xl: 2rem; --font-size-2xl: 1.75rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .hamburger-btn { display: flex; flex-direction: column; justify-content: space-around; width: 24px; height: 24px; background: transparent; border: none; cursor: pointer; z-index: 1010; }
+            .hamburger-btn span { width: 24px; height: 2px; background: var(--color-text-primary); border-radius: 2px; transition: all 0.3s ease; }
+            body.nav-open .hamburger-btn span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            body.nav-open .hamburger-btn span:nth-child(2) { opacity: 0; }
+            body.nav-open .hamburger-btn span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
             .nav-wrapper {
                 position: fixed; top: 0; right: 0; height: 100vh; width: 70%; max-width: 300px;
-                background: var(--color-surface);
+                background: var(--color-surface-gradient);
+                backdrop-filter: var(--backdrop-blur); -webkit-backdrop-filter: var(--backdrop-blur);
                 flex-direction: column; justify-content: center; align-items: center;
-                transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+                transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 border-left: 1px solid var(--color-border);
             }
             body.nav-open .nav-wrapper { transform: translateX(0); }
-            .main-nav { flex-direction: column; gap: var(--spacing-md); }
-            .main-nav a { font-size: var(--font-size-lg); }
-            .nav-wrapper .btn { margin-top: var(--spacing-md); }
-            .hamburger-btn { display: flex; }
             #cursor-aura { display: none; }
         }
     </style>
@@ -233,12 +234,12 @@
                     <h3>Desain Artistik & Konsultatif</h3>
                     <p>Kami bukan sekadar produsen. Kami adalah partner desain Anda, memastikan setiap karya selaras dengan visi dan brand Anda.</p>
                 </div>
-                <div class="feature-card fade-in" style="transition-delay: 100ms;">
+                <div class="feature-card fade-in">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     <h3>Material Kualitas Premium</h3>
                     <p>Dari akrilik presisi hingga lampu LED yang awet dan hemat energi, kami hanya menggunakan material terbaik untuk hasil yang memukau dan tahan lama.</p>
                 </div>
-                <div class="feature-card fade-in" style="transition-delay: 200ms;">
+                <div class="feature-card fade-in">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" /></svg>
                     <h3>Pengerjaan Presisi & Detail</h3>
                     <p>Dengan teknologi modern dan tangan terampil, kami memastikan setiap lekukan dan sambungan dikerjakan dengan sempurna.</p>
@@ -249,116 +250,86 @@
         <section id="galeri" class="container">
             <h2 class="fade-in">Galeri Karya Seni Cahaya</h2>
             <div class="gallery-grid">
-                <div class="gallery-item fade-in" style="transition-delay: 100ms;">
-                    <img src="IMG_7530.jpeg" alt="Contoh karya neon box 1">
-                    <div class="overlay"><h4>Kafe Urban</h4><p>Jakarta Selatan</p></div>
+                <div class="gallery-item fade-in">
+                    <img src="IMG_7530.jpeg" alt="Contoh karya neon box 1" loading="lazy">
                 </div>
-                <div class="gallery-item fade-in" style="transition-delay: 200ms;">
-                    <img src="IMG_7531.jpeg" alt="Contoh karya neon box 2">
-                    <div class="overlay"><h4>Toko Retail Modern</h4><p>Pusat Jakarta</p></div>
+                <div class="gallery-item fade-in">
+                    <img src="IMG_7531.jpeg" alt="Contoh karya neon box 2" loading="lazy">
                 </div>
-                <div class="gallery-item fade-in" style="transition-delay: 300ms;">
-                    <img src="IMG_7532.jpeg" alt="Contoh karya neon box 3">
-                    <div class="overlay"><h4>Ruang Kerja Kreatif</h4><p>Jakarta Timur</p></div>
+                <div class="gallery-item fade-in">
+                    <img src="IMG_7532.jpeg" alt="Contoh karya neon box 3" loading="lazy">
                 </div>
-                 <div class="gallery-item fade-in" style="transition-delay: 400ms;">
-                    <img src="IMG_7533.jpeg" alt="Contoh karya neon box 4">
-                    <div class="overlay"><h4>Instalasi Seni</h4><p>Acara & Pameran</p></div>
+                 <div class="gallery-item fade-in">
+                    <img src="IMG_7533.jpeg" alt="Contoh karya neon box 4" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <section id="proses" class="container">
-            <h2 class="fade-in">Dari Ide Menjadi Karya Nyata</h2>
-            <div class="process-steps">
-                <div class="process-step fade-in" style="transition-delay: 100ms;">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>Konsultasi & Konsep</h3>
-                        <p>Kita mulai dengan diskusi mendalam untuk memahami visi, brand, dan ruang Anda. Dari sini, kami kembangkan konsep desain awal.</p>
-                    </div>
-                </div>
-                <div class="process-step fade-in" style="transition-delay: 200ms;">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3>Desain & Mockup</h3>
-                        <p>Tim kami akan membuat visualisasi dan mockup digital yang detail, sehingga Anda bisa melihat bagaimana karya akan terlihat sebelum masuk produksi.</p>
-                    </div>
-                </div>
-                <div class="process-step fade-in" style="transition-delay: 300ms;">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3>Produksi Presisi</h3>
-                        <p>Setelah desain disetujui, kami mulai proses produksi menggunakan material terbaik dan kontrol kualitas yang ketat di setiap tahap.</p>
-                    </div>
-                </div>
-                <div class="process-step fade-in" style="transition-delay: 400ms;">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                        <h3>Instalasi & Finalisasi</h3>
-                        <p>Tim profesional kami akan melakukan instalasi di lokasi Anda dengan rapi dan aman, memastikan karya seni cahaya Anda menyala sempurna.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </main>
 
-        <section id="kontak" class="container">
-            <div class="cta-section fade-in">
-                <h2>Siap Mengubah Ruang Anda?</h2>
-                <p>Ceritakan visi Anda kepada kami. Dapatkan konsultasi desain dan penawaran harga gratis, tanpa komitmen.</p>
-                <a href="https://wa.me/6281234567890?text=Halo%20Henny%20Chang,%20saya%20tertarik%20untuk%20membuat%20neon%20box." class="btn btn-primary" target="_blank">Hubungi via WhatsApp</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <a href="#" class="logo">Henny<span>Chang</span></a>
-            <p>Studio Desain & Produksi Neon Box Premium<br>Domisili Usaha: Jakarta Timur, Indonesia</p>
-            <div class="social-links">
-                <a href="#">Instagram</a>
-                <a href="#">Email</a>
-                <a href="#">Portfolio</a>
-            </div>
-            <p style="margin-top: 1.5rem; opacity: 0.5;">&copy; <script>document.write(new Date().getFullYear())</script> Henny Chang Neon. All Rights Reserved.</p>
-        </div>
+    <footer style="text-align:center; padding: 2rem 0; border-top: 1px solid var(--color-border); color: var(--color-text-secondary);">
+        <p>&copy; 2024 Henny Chang Neon. All Rights Reserved.</p>
     </footer>
     
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const lenis = new Lenis();
+            // Konfigurasi Lenis untuk scrolling sinematik
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            });
             function raf(time) {
                 lenis.raf(time);
                 requestAnimationFrame(raf);
             }
             requestAnimationFrame(raf);
 
+            // Cursor aura dengan transisi fade
             const cursorAura = document.getElementById('cursor-aura');
-            window.addEventListener('mousemove', (e) => {
-                cursorAura.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-            });
-            
-            const hamburgerBtn = document.querySelector('.hamburger-btn');
-            const body = document.body;
-            const navLinks = document.querySelectorAll('.main-nav a, .nav-contact-btn');
-            
-            hamburgerBtn.addEventListener('click', () => {
-                body.classList.toggle('nav-open');
-            });
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    body.classList.remove('nav-open');
+            if (cursorAura) {
+                window.addEventListener('mousemove', (e) => {
+                    cursorAura.style.opacity = '1';
+                    cursorAura.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                });
+                document.body.addEventListener('mouseleave', () => {
+                    cursorAura.style.opacity = '0';
+                });
+            }
+
+            // Mikrointeraksi pada tombol
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    button.style.transform = 'scale(1.05) translateY(-2px)';
+                });
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = 'scale(1) translateY(0)';
                 });
             });
 
+            // Navigasi & Observer lainnya
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const body = document.body;
+            if (hamburgerBtn) {
+                const navLinks = document.querySelectorAll('.main-nav a, .nav-contact-btn');
+                hamburgerBtn.addEventListener('click', () => {
+                    body.classList.toggle('nav-open');
+                });
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        body.classList.remove('nav-open');
+                    });
+                });
+            }
+
             const fadeInElements = document.querySelectorAll('.fade-in');
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-            const observer = new IntersectionObserver((entries) => {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        entry.target.style.transitionDelay = `${index * 100}ms`;
+                        entry.target.style.transitionDelay = `${index * 150}ms`;
                         entry.target.classList.add('is-visible');
                         observer.unobserve(entry.target);
                     }
@@ -368,34 +339,26 @@
 
             const sections = document.querySelectorAll('section[id]');
             const navAnchors = document.querySelectorAll('.main-nav a');
-            
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        navAnchors.forEach(anchor => {
-                            anchor.classList.remove('is-active');
-                            if (anchor.getAttribute('data-section') === id) {
-                                anchor.classList.add('is-active');
-                            }
-                        });
-                    }
-                });
-            }, { rootMargin: '-50% 0px -50% 0px' });
-            sections.forEach(section => sectionObserver.observe(section));
-            
-            const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    body.classList.toggle('is-scrolled', !entry.isIntersecting);
-                });
-            }, { rootMargin: "-100px 0px 0px 0px" });
-            const firstSection = document.querySelector('main section:first-of-type');
-            if(firstSection) {
-                scrollObserver.observe(firstSection);
+            if (sections.length > 0 && navAnchors.length > 0) {
+                const sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            navAnchors.forEach(anchor => {
+                                anchor.classList.remove('is-active');
+                                if (anchor.getAttribute('data-section') === id) {
+                                    anchor.classList.add('is-active');
+                                }
+                            });
+                        }
+                    });
+                }, { rootMargin: '-50% 0px -50% 0px' });
+                sections.forEach(section => sectionObserver.observe(section));
             }
         });
     </script>
 </body>
 </html>
+
 
    
