@@ -1,369 +1,290 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Henny Chang Neon — Seni Cahaya untuk Identitas Bisnis di Jakarta</title>
-    <meta name="description" content="Henny Chang adalah studio desain dan produksi neon box premium di Jakarta Timur. Kami mengubah ruang dan mendefinisikan brand melalui seni cahaya dengan kualitas artistik dan material terbaik.">
-    <meta name="keywords" content="neon box jakarta, custom neon sign, jasa pembuatan neon box, neon box jakarta timur, henny chang, desain interior, branding visual">
-    <meta name="author" content="Henny Chang">
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Henny Chang Neon — Studio Neon Box Premium Jakarta</title>
+  <meta name="description" content="Studio neon box premium di Jakarta Timur yang menggabungkan desain artistik, material berkualitas, dan pengerjaan presisi.">
+  <meta name="keywords" content="neon box jakarta, desain neon, henny chang, branding visual, neon sign premium">
+  <meta name="author" content="Henny Chang">
+  <link rel="icon" href="/favicon.ico">
+  <meta property="og:title" content="Henny Chang Neon — Seni Cahaya yang Menghidupkan Brand">
+  <meta property="og:description" content="Kami menghidupkan ruang usaha Anda dengan seni cahaya neon berkualitas tinggi.">
+  <meta property="og:image" content="https://hennychang.id/og-image.jpg">
+  <meta property="og:url" content="https://hennychang.id">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --bg: #f9f9fb;
+      --surface: #fff;
+      --text-main: #1d1d1f;
+      --text-muted: #6e6e73;
+      --accent: #007AFF;
+      --radius: 20px;
+      --shadow: 0 12px 30px rgba(0,0,0,0.05);
+      --font: 'Inter', sans-serif;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    <style>
-        /* ==========================================================================
-           1. FONDASI & VARIABEL (SUMBER KEBENARAN DESAIN)
-           ========================================================================== */
-        :root {
-            /* Palet Warna Sederhana & Elegan */
-            --color-background: #F8F8FA;
-            --color-surface: #FFFFFF;
-            --color-text-primary: #1d1d1f;
-            --color-text-secondary: #6e6e73;
-            --color-accent: #007AFF;
-            --color-border: rgba(0, 0, 0, 0.1);
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-            /* Shadow Halus */
-            --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.04);
-            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
-            
-            /* Tipografi & Animasi Konsisten */
-            --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --transition-curve: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            
-            /* Jarak & Ukuran Presisi */
-            --border-radius: 18px;
-            --spacing-sm: 8px;
-            --spacing-md: 16px;
-            --spacing-lg: 24px;
-            --spacing-xl: 32px;
-            --spacing-2xl: 64px;
-            --spacing-section: 100px;
-        }
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      padding: 1.25rem 0;
+      transition: all 0.3s ease;
+    }
 
-        /* ==========================================================================
-           2. RESET GLOBAL & GAYA DASAR
-           ========================================================================== */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            background-color: var(--color-background);
-            color: var(--color-text-primary);
-            font-family: var(--font-family-sans);
-            line-height: 1.7; /* UX: Ruang napas untuk teks */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
-        }
-        body.nav-open { overflow: hidden; } /* Kunci scroll saat menu mobile terbuka */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        /* ==========================================================================
-           3. LAYOUT & TIPOGRAFI
-           ========================================================================== */
-        .container { width: 100%; max-width: 1140px; margin-left: auto; margin-right: auto; padding: 0 var(--spacing-xl); }
-        section { padding: var(--spacing-section) 0; }
-        
-        h1, h2, h3 { font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; }
-        h1 { font-size: 3.5rem; margin-bottom: var(--spacing-lg); }
-        h2 { font-size: 2.5rem; text-align: center; margin-bottom: var(--spacing-2xl); }
-        h3 { font-size: 1.5rem; margin-bottom: var(--spacing-sm); }
-        p { font-size: 1.125rem; color: var(--color-text-secondary); max-width: 680px; }
-        .hero p { font-size: 1.25rem; }
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-main);
+      text-decoration: none;
+    }
 
-        /* ==========================================================================
-           4. KOMPONEN UI
-           ========================================================================== */
-        .btn {
-            display: inline-block; padding: 14px 32px; font-size: 1rem; font-weight: 600;
-            border-radius: var(--border-radius); text-decoration: none; cursor: pointer;
-            transition: var(--transition-curve); border: none; text-align: center;
-        }
-        .btn-primary {
-            background-color: var(--color-accent); color: #fff; box-shadow: var(--shadow-subtle);
-        }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-medium); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
 
-        /* ==========================================================================
-           5. HEADER & NAVIGASI
-           ========================================================================== */
-        .main-header {
-            padding: var(--spacing-lg) 0; position: fixed; width: 100%; top: 0; left: 0; z-index: 1000;
-            background: rgba(248, 248, 250, 0.85);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid transparent; transition: all 0.3s ease;
-        }
-        body.is-scrolled .main-header { border-bottom-color: var(--color-border); }
-        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--color-text-primary); }
-        
-        .desktop-nav { display: flex; align-items: center; gap: var(--spacing-xl); }
-        .desktop-nav .main-nav { display: flex; gap: var(--spacing-lg); }
-        .main-nav a { color: var(--color-text-secondary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-        .main-nav a:hover { color: var(--color-text-primary); }
-        .main-nav a.is-active { color: var(--color-text-primary); font-weight: 600; }
-        
-        .hamburger-btn { display: none; } /* Disembunyikan di desktop */
-        .mobile-nav { display: none; } /* Disembunyikan di desktop */
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
 
-        /* ==========================================================================
-           6. SECTIONS
-           ========================================================================== */
-        .hero { text-align: center; padding: 180px 0 var(--spacing-section) 0; }
-        .hero p { margin: var(--spacing-md) auto var(--spacing-lg) auto; }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-main);
+    }
 
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-xl); }
-        .feature-card {
-            background-color: var(--color-surface); padding: var(--spacing-xl);
-            border: 1px solid var(--color-border); border-radius: var(--border-radius);
-            transition: var(--transition-curve);
-        }
-        .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-medium); }
-        .feature-card svg { color: var(--color-accent); width: 36px; height: 36px; margin-bottom: var(--spacing-lg); }
-        
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-xl); }
-        .gallery-item {
-            position: relative; overflow: hidden; border-radius: var(--border-radius);
-            aspect-ratio: 4 / 3; background-color: #e8e8e8;
-            transition: var(--transition-curve);
-        }
-        .gallery-item:hover { transform: scale(1.03); box-shadow: var(--shadow-medium); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .cta-section {
-            background-color: var(--color-surface); text-align: center;
-            padding: var(--spacing-2xl); border-radius: var(--border-radius);
-            border: 1px solid var(--color-border);
-        }
-        .cta-section h2 { margin-bottom: var(--spacing-md); }
-        .cta-section p { max-width: 580px; margin: 0 auto var(--spacing-xl) auto; }
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
 
-        .fade-in {
-            opacity: 0; transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out; will-change: opacity, transform;
-        }
-        .fade-in.is-visible { opacity: 1; transform: translateY(0); }
-        
-        /* ==========================================================================
-           7. FOOTER
-           ========================================================================== */
-        .main-footer { text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid var(--color-border); }
-        .main-footer p { font-size: 1rem; color: var(--color-text-secondary); }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
 
-        /* ==========================================================================
-           8. MOBILE & RESPONSIVE (FONDASI KOKOH)
-           ========================================================================== */
-        @media (max-width: 1024px) {
-            .features-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2rem; }
-        }
+    main {
+      padding-top: 120px;
+    }
 
-        @media (max-width: 768px) {
-            .container { padding: 0 var(--spacing-lg); }
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.75rem; }
-            .features-grid, .gallery-grid { grid-template-columns: 1fr; }
-            
-            /* Sembunyikan Navigasi Desktop */
-            .desktop-nav { display: none; }
+    section {
+      padding: 100px 0;
+    }
 
-            /* Tampilkan & Atur Tombol Hamburger */
-            .hamburger-btn {
-                display: flex; flex-direction: column; justify-content: space-around;
-                width: 24px; height: 24px; background: transparent; border: none;
-                cursor: pointer; z-index: 2000;
-            }
-            .hamburger-btn span {
-                width: 24px; height: 2px; background: var(--color-text-primary);
-                border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease;
-            }
-            body.nav-open .hamburger-btn span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            body.nav-open .hamburger-btn span:nth-child(2) { opacity: 0; }
-            body.nav-open .hamburger-btn span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            
-            /* Gaya Menu Mobile (Fullscreen) */
-            .mobile-nav {
-                display: flex; flex-direction: column; justify-content: center; align-items: center;
-                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: var(--color-background);
-                z-index: 1999;
-                opacity: 0; pointer-events: none;
-                transition: opacity 0.4s ease;
-            }
-            body.nav-open .mobile-nav { opacity: 1; pointer-events: auto; }
-            
-            .mobile-nav .main-nav { flex-direction: column; text-align: center; gap: var(--spacing-xl); }
-            .mobile-nav .main-nav a { font-size: 1.75rem; font-weight: 600; }
-        }
-    </style>
+    .hero {
+      text-align: center;
+      background: linear-gradient(180deg, #fff, #f5f5f7);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .feature-card h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: var(--radius);
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    .cta {
+      text-align: center;
+      background: #fff;
+      padding: 4rem 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .cta p {
+      color: var(--text-muted);
+      margin: 1rem 0 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.25rem; }
+      .hero p { font-size: 1.125rem; }
+    }
+  </style>
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <a href="#" class="logo">Henny Chang</a>
-            
-            <div class="desktop-nav">
-                <nav class="main-nav">
-                    <a href="#keunggulan" data-section="keunggulan">Keunggulan</a>
-                    <a href="#galeri" data-section="galeri">Galeri Karya</a>
-                    <a href="#proses" data-section="proses">Proses</a>
-                </nav>
-                <a href="#kontak" class="btn btn-primary">Hubungi Kami</a>
-            </div>
-
-            <button class="hamburger-btn" aria-label="Toggle Navigation" aria-controls="mobile-nav-menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Henny Chang</a>
+        <div class="nav-links">
+          <a href="#keunggulan">Keunggulan</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#kontak">Kontak</a>
         </div>
-    </header>
-
-    <div class="mobile-nav" id="mobile-nav-menu">
-        <nav class="main-nav">
-            <a href="#keunggulan" data-section="keunggulan">Keunggulan</a>
-            <a href="#galeri" data-section="galeri">Galeri Karya</a>
-            <a href="#proses" data-section="proses">Proses</a>
-            <a href="#kontak">Hubungi Kami</a>
-        </nav>
+      </nav>
     </div>
+  </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container fade-in">
-                <h1>Seni Cahaya, <br>Identitas Bisnis Anda.</h1>
-                <p>Henny Chang Neon adalah studio desain premium di Jakarta Timur. Kami mengubah ruang dan mengangkat brand Anda melalui karya seni cahaya yang presisi dan elegan.</p>
-                <a href="#kontak" class="btn btn-primary">Mulai Proyek Anda</a>
-            </div>
-        </section>
+  <main>
+    <section class="hero fade-in">
+      <div class="container">
+        <h1>Seni Cahaya untuk Identitas Anda</h1>
+        <p>Kami mengubah ruang Anda menjadi pengalaman visual melalui neon box premium.</p>
+        <a href="#kontak" class="btn">Mulai Proyek</a>
+      </div>
+    </section>
 
-        <section id="keunggulan" class="container">
-            <h2 class="fade-in">Kualitas Tanpa Kompromi</h2>
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
-                    <h3>Desain Konsultatif</h3>
-                    <p>Kami bukan sekadar produsen. Kami adalah partner desain Anda, memastikan setiap karya selaras dengan visi dan brand Anda.</p>
-                </div>
-                <div class="feature-card fade-in">
-                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <h3>Material Premium</h3>
-                    <p>Dari akrilik presisi hingga lampu LED yang awet, kami hanya menggunakan material terbaik untuk hasil yang memukau dan tahan lama.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" /></svg>
-                    <h3>Pengerjaan Presisi</h3>
-                    <p>Dengan teknologi modern dan tangan terampil, kami memastikan setiap lekukan dan sambungan dikerjakan dengan sempurna.</p>
-                </div>
-            </div>
-        </section>
+    <section id="keunggulan">
+      <div class="container">
+        <h2 class="fade-in">Keunggulan Kami</h2>
+        <div class="features">
+          <div class="feature-card fade-in">
+            <h3>Desain Konsultatif</h3>
+            <p>Kami bekerja erat dengan Anda untuk menghadirkan desain yang selaras dengan brand Anda.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <h3>Material Premium</h3>
+            <p>Dari akrilik presisi hingga LED tahan lama — kualitas adalah standar kami.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <h3>Pengerjaan Presisi</h3>
+            <p>Diproduksi dengan tangan terampil dan teknologi modern untuk hasil yang sempurna.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section id="galeri" class="container">
-            <h2 class="fade-in">Galeri Karya</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item fade-in"><img src="IMG_7530.jpeg" alt="Karya neon box untuk kafe" loading="lazy"></div>
-                <div class="gallery-item fade-in"><img src="IMG_7531.jpeg" alt="Karya neon box untuk toko" loading="lazy"></div>
-                <div class="gallery-item fade-in"><img src="IMG_7532.jpeg" alt="Karya neon box untuk kantor" loading="lazy"></div>
-                <div class="gallery-item fade-in"><img src="IMG_7533.jpeg" alt="Karya neon box artistik" loading="lazy"></div>
-            </div>
-        </section>
+    <section id="galeri">
+      <div class="container">
+        <h2 class="fade-in">Galeri Karya</h2>
+        <div class="gallery">
+          <img src="img/sample1.jpg" alt="Neon kafe" class="fade-in">
+          <img src="img/sample2.jpg" alt="Neon studio" class="fade-in">
+          <img src="img/sample3.jpg" alt="Neon toko" class="fade-in">
+        </div>
+      </div>
+    </section>
 
-        <section id="kontak" class="container">
-            <div class="cta-section fade-in">
-                <h2>Wujudkan Visi Anda</h2>
-                <p>Ceritakan ide Anda. Dapatkan konsultasi desain dan penawaran harga gratis dari studio kami di Jakarta Timur.</p>
-                <a href="https://wa.me/6282254553339?text=Halo%20Henny%20Chang,%20saya%20tertarik%20untuk%20membuat%20neon%20box." class="btn btn-primary" target="_blank">Hubungi via WhatsApp</a>
-            </div>
-        </section>
-    </main>
+    <section id="kontak">
+      <div class="container">
+        <div class="cta fade-in">
+          <h2>Wujudkan Neon Impianmu</h2>
+          <p>Konsultasi gratis dan desain eksklusif untuk proyek Anda. Hubungi kami hari ini.</p>
+          <a href="https://wa.me/6282254553339?text=Halo%20Henny%20Chang..." class="btn" target="_blank">Chat via WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2025 Henny Chang Neon. All Rights Reserved.</p>
-    </footer>
-    
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // 1. Inisialisasi Smooth Scrolling
-            const lenis = new Lenis();
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
+  <footer>
+    <p>&copy; 2025 Henny Chang Neon. All Rights Reserved.</p>
+  </footer>
 
-            // 2. Logika Menu Mobile yang Kokoh
-            const hamburgerBtn = document.querySelector('.hamburger-btn');
-            const body = document.body;
-            const mobileNav = document.querySelector('.mobile-nav');
-
-            if (hamburgerBtn && mobileNav) {
-                const navLinks = mobileNav.querySelectorAll('a');
-                
-                hamburgerBtn.addEventListener('click', () => {
-                    const isOpened = body.classList.toggle('nav-open');
-                    hamburgerBtn.setAttribute('aria-expanded', isOpened);
-                });
-                
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        body.classList.remove('nav-open');
-                        hamburgerBtn.setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-
-            // 3. Animasi Fade-in saat Scroll
-            const fadeInElements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.transitionDelay = `${index * 100}ms`;
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            fadeInElements.forEach(el => observer.observe(el));
-
-            // 4. Highlight Navigasi Desktop saat Scroll
-            const sections = document.querySelectorAll('section[id]');
-            const desktopNavLinks = document.querySelectorAll('.desktop-nav .main-nav a');
-            
-            if (sections.length > 0 && desktopNavLinks.length > 0) {
-                const sectionObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const id = entry.target.getAttribute('id');
-                            desktopNavLinks.forEach(anchor => {
-                                anchor.classList.remove('is-active');
-                                if (anchor.getAttribute('data-section') === id) {
-                                    anchor.classList.add('is-active');
-                                }
-                            });
-                        }
-                    });
-                }, { rootMargin: '-50% 0px -50% 0px' });
-                sections.forEach(section => sectionObserver.observe(section));
-            }
-
-            // 5. Efek Border pada Header saat Scroll
-            const heroSection = document.querySelector('.hero');
-            if (heroSection) {
-                const scrollObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        body.classList.toggle('is-scrolled', !entry.isIntersecting);
-                    });
-                }, { rootMargin: "-100px 0px 0px 0px" });
-                scrollObserver.observe(heroSection);
-            }
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fadeEls = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
         });
-    </script>
+      }, { threshold: 0.1 });
+
+      fadeEls.forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
 
