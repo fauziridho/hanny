@@ -13,200 +13,210 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* ==========================================================================
+           1. FONDASI & VARIABEL (SUMBER KEBENARAN DESAIN)
+           ========================================================================== */
         :root {
-            /* Palet Warna & Gradien */
-            --color-background-gradient: linear-gradient(180deg, #FFFFFF 0%, #F5F6F8 100%);
-            --color-surface-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(245, 246, 248, 0.7));
-            --color-accent-gradient: linear-gradient(90deg, #007AFF, #00C4B4);
-            --color-text-primary: #1D1D1F; /* Warna teks utama Apple */
-            --color-text-secondary: #6E6E73; /* Warna teks sekunder Apple */
-            --color-border: rgba(0, 0, 0, 0.08);
+            /* Palet Warna Sederhana & Elegan */
+            --color-background: #F8F8FA;
+            --color-surface: #FFFFFF;
+            --color-text-primary: #1d1d1f;
+            --color-text-secondary: #6e6e73;
+            --color-accent: #007AFF;
+            --color-border: rgba(0, 0, 0, 0.1);
 
-            /* Shadow & Blur (Efek Halus) */
-            --shadow-subtle: 0 6px 24px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.03);
-            --shadow-glass: 0 10px 35px rgba(0, 122, 255, 0.15);
-            --backdrop-blur: blur(20px);
+            /* Shadow Halus */
+            --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
             
-            /* Tipografi & Animasi (Level Perfeksionis) */
+            /* Tipografi & Animasi Konsisten */
             --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-curve: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             
-            /* Ukuran & Jarak (Presisi) */
-            --font-size-base: 16px;
-            --font-size-sm: 0.875rem;
-            --font-size-md: 1rem;
-            --font-size-lg: 1.125rem;
-            --font-size-xl: 1.5rem;
-            --font-size-2xl: 2.25rem;
-            --font-size-3xl: 3.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2.5rem;
-            --spacing-xl: 5rem; /* Perbesar jarak antar section */
-            --spacing-2xl: 7rem; /* Perbesar jarak antar section */
-            --border-radius: 18px; /* Sedikit lebih besar untuk kesan lebih lembut */
+            /* Jarak & Ukuran Presisi */
+            --border-radius: 18px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 64px;
+            --spacing-section: 100px;
         }
 
+        /* ==========================================================================
+           2. RESET GLOBAL & GAYA DASAR
+           ========================================================================== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-size: var(--font-size-base); }
-
+        html { scroll-behavior: smooth; }
         body {
-            background: var(--color-background-gradient);
+            background-color: var(--color-background);
             color: var(--color-text-primary);
             font-family: var(--font-family-sans);
-            line-height: 1.7; /* PERFECTIONIST FIX: Tambah jarak antar baris */
+            line-height: 1.7; /* UX: Ruang napas untuk teks */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
-        
-        .container { width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 var(--spacing-md); }
-        section { padding: var(--spacing-xl) 0; }
-        
-        h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; } /* PERFECTIONIST FIX: Jarak huruf lebih presisi */
-        h1 { font-size: var(--font-size-3xl); margin-bottom: var(--spacing-md); }
-        h2 { font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-xl); }
-        h3 { font-size: var(--font-size-xl); margin-bottom: 1rem; }
-        p { font-size: var(--font-size-lg); color: var(--color-text-secondary); max-width: 720px; }
-        p.hero-subtext { line-height: 1.8; } /* PERFECTIONIST FIX: Subteks hero lebih lega */
-        
-        .text-accent { background: var(--color-accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: #007AFF; /* Fallback */ }
+        body.nav-open { overflow: hidden; } /* Kunci scroll saat menu mobile terbuka */
 
+        /* ==========================================================================
+           3. LAYOUT & TIPOGRAFI
+           ========================================================================== */
+        .container { width: 100%; max-width: 1140px; margin-left: auto; margin-right: auto; padding: 0 var(--spacing-xl); }
+        section { padding: var(--spacing-section) 0; }
+        
+        h1, h2, h3 { font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; }
+        h1 { font-size: 3.5rem; margin-bottom: var(--spacing-lg); }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: var(--spacing-2xl); }
+        h3 { font-size: 1.5rem; margin-bottom: var(--spacing-sm); }
+        p { font-size: 1.125rem; color: var(--color-text-secondary); max-width: 680px; }
+        .hero p { font-size: 1.25rem; }
+
+        /* ==========================================================================
+           4. KOMPONEN UI
+           ========================================================================== */
+        .btn {
+            display: inline-block; padding: 14px 32px; font-size: 1rem; font-weight: 600;
+            border-radius: var(--border-radius); text-decoration: none; cursor: pointer;
+            transition: var(--transition-curve); border: none; text-align: center;
+        }
+        .btn-primary {
+            background-color: var(--color-accent); color: #fff; box-shadow: var(--shadow-subtle);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-medium); }
+
+        /* ==========================================================================
+           5. HEADER & NAVIGASI
+           ========================================================================== */
         .main-header {
-            padding: 1rem 0; position: fixed; width: 100%; top: 0; left: 0; z-index: 1000;
-            background: rgba(249, 249, 249, 0.85);
-            backdrop-filter: var(--backdrop-blur); -webkit-backdrop-filter: var(--backdrop-blur);
-            border-bottom: 1px solid transparent; transition: border-color 0.3s ease;
+            padding: var(--spacing-lg) 0; position: fixed; width: 100%; top: 0; left: 0; z-index: 1000;
+            background: rgba(248, 248, 250, 0.85);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent; transition: all 0.3s ease;
         }
         body.is-scrolled .main-header { border-bottom-color: var(--color-border); }
-
         .main-header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--color-text-primary); }
-        .nav-wrapper, .main-nav { display: flex; align-items: center; }
-        .nav-wrapper { gap: var(--spacing-lg); }
-        .main-nav { gap: var(--spacing-md); }
         
-        .main-nav a { color: var(--color-text-secondary); text-decoration: none; padding: 0.5rem; font-weight: 500; transition: color 0.2s; position: relative; }
+        .desktop-nav { display: flex; align-items: center; gap: var(--spacing-xl); }
+        .desktop-nav .main-nav { display: flex; gap: var(--spacing-lg); }
+        .main-nav a { color: var(--color-text-secondary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
         .main-nav a:hover { color: var(--color-text-primary); }
         .main-nav a.is-active { color: var(--color-text-primary); font-weight: 600; }
-        .main-nav a.is-active::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background: var(--color-accent-gradient); border-radius: 50%; }
         
-        .btn { display: inline-block; padding: 14px 32px; font-size: 1rem; font-weight: 600; border-radius: var(--border-radius); text-decoration: none; cursor: pointer; transition: var(--transition-smooth); border: none; text-align: center; }
-        .btn-primary {
-            background: var(--color-accent-gradient); color: #fff; box-shadow: var(--shadow-subtle); position: relative; overflow: hidden; will-change: transform;
-        }
-        .btn-primary::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-primary:hover::before { left: 100%; }
-        .btn-primary:hover { box-shadow: var(--shadow-glass); }
-        
-        #cursor-aura {
-            position: fixed; width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(0, 122, 255, 0.08), transparent 70%);
-            border-radius: 50%; pointer-events: none; z-index: -1; transform: translate(-50%, -50%);
-            opacity: 0; transition: opacity 0.5s, transform 0.1s linear;
-        }
-        
-        .hero { padding-top: calc(var(--spacing-2xl) + 80px); text-align: center; min-height: 90vh; display: flex; align-items: center; justify-content: center; }
-        .hero p { margin: var(--spacing-md) auto var(--spacing-lg) auto; max-width: 680px; }
+        .hamburger-btn { display: none; } /* Disembunyikan di desktop */
+        .mobile-nav { display: none; } /* Disembunyikan di desktop */
 
-        .feature-card, .cta-section {
-            background: var(--color-surface-gradient); backdrop-filter: var(--backdrop-blur); -webkit-backdrop-filter: var(--backdrop-blur);
-            border: 1px solid var(--color-border); border-radius: 24px; padding: var(--spacing-lg);
-            box-shadow: var(--shadow-subtle); transition: var(--transition-smooth);
-        }
-        .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-glass); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); }
-        .feature-card svg { width: 40px; height: 40px; margin-bottom: var(--spacing-md); background: var(--color-accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* ==========================================================================
+           6. SECTIONS
+           ========================================================================== */
+        .hero { text-align: center; padding: 180px 0 var(--spacing-section) 0; }
+        .hero p { margin: var(--spacing-md) auto var(--spacing-lg) auto; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-xl); }
+        .feature-card {
+            background-color: var(--color-surface); padding: var(--spacing-xl);
+            border: 1px solid var(--color-border); border-radius: var(--border-radius);
+            transition: var(--transition-curve);
+        }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-medium); }
+        .feature-card svg { color: var(--color-accent); width: 36px; height: 36px; margin-bottom: var(--spacing-lg); }
+        
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-xl); }
         .gallery-item {
             position: relative; overflow: hidden; border-radius: var(--border-radius);
-            aspect-ratio: 4 / 3; background-color: #e0e0e0; will-change: transform; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            aspect-ratio: 4 / 3; background-color: #e8e8e8;
+            transition: var(--transition-curve);
         }
-        .gallery-item:hover { transform: scale(1.03); }
-        .gallery-item img {
-            width: 100%; height: 100%; object-fit: cover; transform: scale(1.05); /* Sedikit zoom awal */
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .gallery-item:hover img { transform: scale(1.15); } /* Zoom lebih besar saat hover */
+        .gallery-item:hover { transform: scale(1.03); box-shadow: var(--shadow-medium); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
         
+        .cta-section {
+            background-color: var(--color-surface); text-align: center;
+            padding: var(--spacing-2xl); border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+        }
+        .cta-section h2 { margin-bottom: var(--spacing-md); }
+        .cta-section p { max-width: 580px; margin: 0 auto var(--spacing-xl) auto; }
+
         .fade-in {
-            opacity: 0; transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; will-change: opacity, transform;
         }
         .fade-in.is-visible { opacity: 1; transform: translateY(0); }
-
-        .main-nav a:focus-visible, .btn:focus-visible { /* PERFECTIONIST FIX: Aksesibilitas keyboard lebih baik */
-            outline: 2px solid #007AFF;
-            outline-offset: 3px;
-            border-radius: 6px;
-        }
-        .hamburger-btn { display: none; } /* Sembunyikan di desktop */
         
+        /* ==========================================================================
+           7. FOOTER
+           ========================================================================== */
+        .main-footer { text-align: center; padding: var(--spacing-2xl) 0; border-top: 1px solid var(--color-border); }
+        .main-footer p { font-size: 1rem; color: var(--color-text-secondary); }
+
+        /* ==========================================================================
+           8. MOBILE & RESPONSIVE (FONDASI KOKOH)
+           ========================================================================== */
         @media (max-width: 1024px) {
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
         }
 
-        /* DEBUG & PERBAIKAN TOTAL: KODE MENU BURGER */
         @media (max-width: 768px) {
-            :root { --font-size-3xl: 2rem; --font-size-2xl: 1.75rem; --spacing-lg: 2rem; }
-            .container { padding: 0 var(--spacing-sm); }
+            .container { padding: 0 var(--spacing-lg); }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.75rem; }
+            .features-grid, .gallery-grid { grid-template-columns: 1fr; }
             
+            /* Sembunyikan Navigasi Desktop */
+            .desktop-nav { display: none; }
+
+            /* Tampilkan & Atur Tombol Hamburger */
             .hamburger-btn {
                 display: flex; flex-direction: column; justify-content: space-around;
-                width: 24px; height: 24px; background: transparent; border: none; cursor: pointer;
-                z-index: 1010; /* Pastikan selalu di atas */
+                width: 24px; height: 24px; background: transparent; border: none;
+                cursor: pointer; z-index: 2000;
             }
             .hamburger-btn span {
                 width: 24px; height: 2px; background: var(--color-text-primary);
-                border-radius: 2px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease;
             }
             body.nav-open .hamburger-btn span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             body.nav-open .hamburger-btn span:nth-child(2) { opacity: 0; }
             body.nav-open .hamburger-btn span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
             
-            .nav-wrapper {
+            /* Gaya Menu Mobile (Fullscreen) */
+            .mobile-nav {
                 display: flex; flex-direction: column; justify-content: center; align-items: center;
-                position: fixed; top: 0; right: 0; height: 100%; width: 85%; max-width: 350px;
-                background: rgba(252, 252, 252, 0.9);
-                backdrop-filter: var(--backdrop-blur); -webkit-backdrop-filter: var(--backdrop-blur);
-                transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                border-left: 1px solid var(--color-border);
-                padding: var(--spacing-xl);
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: var(--color-background);
+                z-index: 1999;
+                opacity: 0; pointer-events: none;
+                transition: opacity 0.4s ease;
             }
-            body.nav-open .nav-wrapper { transform: translateX(0); }
+            body.nav-open .mobile-nav { opacity: 1; pointer-events: auto; }
             
-            .main-nav { flex-direction: column; gap: var(--spacing-md); width: 100%; text-align: center; }
-            .main-nav a { font-size: 1.25rem; width: 100%; padding: 1rem 0; }
-            .nav-wrapper .btn-primary { width: 100%; margin-top: var(--spacing-lg); padding: 1rem; }
-            #cursor-aura { display: none; }
+            .mobile-nav .main-nav { flex-direction: column; text-align: center; gap: var(--spacing-xl); }
+            .mobile-nav .main-nav a { font-size: 1.75rem; font-weight: 600; }
         }
     </style>
 </head>
 <body>
-
-    <div id="cursor-aura"></div>
-
     <header class="main-header">
         <div class="container">
-            <a href="#" class="logo">Henny<span>Chang</span></a>
-            <div class="nav-wrapper" id="main-menu">
+            <a href="#" class="logo">Henny Chang</a>
+            
+            <div class="desktop-nav">
                 <nav class="main-nav">
                     <a href="#keunggulan" data-section="keunggulan">Keunggulan</a>
                     <a href="#galeri" data-section="galeri">Galeri Karya</a>
-                    <a href="#proses" data-section="proses">Proses Kami</a>
+                    <a href="#proses" data-section="proses">Proses</a>
                 </nav>
-                <a href="#kontak" class="btn btn-primary nav-contact-btn">Hubungi Kami</a>
+                <a href="#kontak" class="btn btn-primary">Hubungi Kami</a>
             </div>
-            <button class="hamburger-btn" aria-label="Toggle Navigation" aria-controls="main-menu" aria-expanded="false">
+
+            <button class="hamburger-btn" aria-label="Toggle Navigation" aria-controls="mobile-nav-menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -214,119 +224,86 @@
         </div>
     </header>
 
+    <div class="mobile-nav" id="mobile-nav-menu">
+        <nav class="main-nav">
+            <a href="#keunggulan" data-section="keunggulan">Keunggulan</a>
+            <a href="#galeri" data-section="galeri">Galeri Karya</a>
+            <a href="#proses" data-section="proses">Proses</a>
+            <a href="#kontak">Hubungi Kami</a>
+        </nav>
+    </div>
+
     <main>
         <section id="home" class="hero">
             <div class="container fade-in">
-                <h1>Transform Your Space. <br><span class="text-accent">Define Your Brand in Light.</span></h1>
-                <p class="hero-subtext">
-                    Kami adalah studio desain dan produksi neon box premium di Jakarta Timur. Kami menciptakan karya seni cahaya yang ikonik untuk mengangkat identitas brand dan estetika ruang Anda.
-                </p>
+                <h1>Seni Cahaya, <br>Identitas Bisnis Anda.</h1>
+                <p>Henny Chang Neon adalah studio desain premium di Jakarta Timur. Kami mengubah ruang dan mengangkat brand Anda melalui karya seni cahaya yang presisi dan elegan.</p>
                 <a href="#kontak" class="btn btn-primary">Mulai Proyek Anda</a>
             </div>
         </section>
 
         <section id="keunggulan" class="container">
-            <h2 class="fade-in">Mengapa Memilih Henny Chang?</h2>
+            <h2 class="fade-in">Kualitas Tanpa Kompromi</h2>
             <div class="features-grid">
                 <div class="feature-card fade-in">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.553L16.5 21.75l-.398-1.197a3.375 3.375 0 00-2.455-2.456L12.75 18l1.197-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.197a3.375 3.375 0 002.456 2.455L20.25 18l-1.197.398a3.375 3.375 0 00-2.455 2.456z" /></svg>
-                    <h3>Desain Artistik & Konsultatif</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+                    <h3>Desain Konsultatif</h3>
                     <p>Kami bukan sekadar produsen. Kami adalah partner desain Anda, memastikan setiap karya selaras dengan visi dan brand Anda.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <h3>Material Kualitas Premium</h3>
-                    <p>Dari akrilik presisi hingga lampu LED yang awet dan hemat energi, kami hanya menggunakan material terbaik untuk hasil yang memukau dan tahan lama.</p>
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h3>Material Premium</h3>
+                    <p>Dari akrilik presisi hingga lampu LED yang awet, kami hanya menggunakan material terbaik untuk hasil yang memukau dan tahan lama.</p>
                 </div>
                 <div class="feature-card fade-in">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" /></svg>
-                    <h3>Pengerjaan Presisi & Detail</h3>
+                    <h3>Pengerjaan Presisi</h3>
                     <p>Dengan teknologi modern dan tangan terampil, kami memastikan setiap lekukan dan sambungan dikerjakan dengan sempurna.</p>
                 </div>
             </div>
         </section>
 
         <section id="galeri" class="container">
-            <h2 class="fade-in">Galeri Karya Seni Cahaya</h2>
+            <h2 class="fade-in">Galeri Karya</h2>
             <div class="gallery-grid">
-                <div class="gallery-item fade-in">
-                    <img src="IMG_7530.jpeg" alt="Contoh karya neon box untuk kafe" loading="lazy">
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="IMG_7531.jpeg" alt="Contoh karya neon box untuk toko retail" loading="lazy">
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="IMG_7532.jpeg" alt="Contoh karya neon box untuk ruang kerja" loading="lazy">
-                </div>
-                 <div class="gallery-item fade-in">
-                    <img src="IMG_7533.jpeg" alt="Contoh karya neon box artistik" loading="lazy">
-                </div>
+                <div class="gallery-item fade-in"><img src="IMG_7530.jpeg" alt="Karya neon box untuk kafe" loading="lazy"></div>
+                <div class="gallery-item fade-in"><img src="IMG_7531.jpeg" alt="Karya neon box untuk toko" loading="lazy"></div>
+                <div class="gallery-item fade-in"><img src="IMG_7532.jpeg" alt="Karya neon box untuk kantor" loading="lazy"></div>
+                <div class="gallery-item fade-in"><img src="IMG_7533.jpeg" alt="Karya neon box artistik" loading="lazy"></div>
             </div>
-        </section>
-
-        <section id="proses" class="container">
-            <h2 class="fade-in">Dari Ide Menjadi Karya Nyata</h2>
-            <div class="process-steps">
-                </div>
         </section>
 
         <section id="kontak" class="container">
             <div class="cta-section fade-in">
-                <h2>Siap Mengubah Ruang Anda?</h2>
-                <p>Ceritakan visi Anda kepada kami. Dapatkan konsultasi desain dan penawaran harga gratis, tanpa komitmen.</p>
+                <h2>Wujudkan Visi Anda</h2>
+                <p>Ceritakan ide Anda. Dapatkan konsultasi desain dan penawaran harga gratis dari studio kami di Jakarta Timur.</p>
                 <a href="https://wa.me/6282254553339?text=Halo%20Henny%20Chang,%20saya%20tertarik%20untuk%20membuat%20neon%20box." class="btn btn-primary" target="_blank">Hubungi via WhatsApp</a>
             </div>
         </section>
-        
     </main>
 
-    <footer style="text-align:center; padding: 4rem 0 2rem 0; border-top: 1px solid var(--color-border); color: var(--color-text-secondary);">
-        <p>&copy; 2024 Henny Chang Neon. All Rights Reserved.</p>
+    <footer class="main-footer">
+        <p>&copy; 2025 Henny Chang Neon. All Rights Reserved.</p>
     </footer>
     
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Konfigurasi Lenis untuk scrolling sinematik
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            });
+            // 1. Inisialisasi Smooth Scrolling
+            const lenis = new Lenis();
             function raf(time) {
                 lenis.raf(time);
                 requestAnimationFrame(raf);
             }
             requestAnimationFrame(raf);
 
-            const cursorAura = document.getElementById('cursor-aura');
-            if (cursorAura) {
-                window.addEventListener('mousemove', (e) => {
-                    cursorAura.style.opacity = '1';
-                    cursorAura.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                });
-                document.body.addEventListener('mouseleave', () => {
-                    cursorAura.style.opacity = '0';
-                });
-            }
-
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', () => {
-                    button.style.transform = 'scale(1.03) translateY(-2px)';
-                });
-                button.addEventListener('mouseleave', () => {
-                    button.style.transform = 'scale(1) translateY(0)';
-                });
-            });
-
-            // PERFECTIONIST FIX: Logika menu burger yang lebih robust
+            // 2. Logika Menu Mobile yang Kokoh
             const hamburgerBtn = document.querySelector('.hamburger-btn');
             const body = document.body;
-            const navMenu = document.getElementById('main-menu');
+            const mobileNav = document.querySelector('.mobile-nav');
 
-            if (hamburgerBtn && navMenu) {
-                const navLinks = navMenu.querySelectorAll('a');
+            if (hamburgerBtn && mobileNav) {
+                const navLinks = mobileNav.querySelectorAll('a');
                 
                 hamburgerBtn.addEventListener('click', () => {
                     const isOpened = body.classList.toggle('nav-open');
@@ -341,28 +318,29 @@
                 });
             }
 
+            // 3. Animasi Fade-in saat Scroll
             const fadeInElements = document.querySelectorAll('.fade-in');
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        // Delay yang lebih halus
                         entry.target.style.transitionDelay = `${index * 100}ms`;
                         entry.target.classList.add('is-visible');
                         observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
             fadeInElements.forEach(el => observer.observe(el));
 
+            // 4. Highlight Navigasi Desktop saat Scroll
             const sections = document.querySelectorAll('section[id]');
-            const navAnchors = document.querySelectorAll('.main-nav a');
-            if (sections.length > 0 && navAnchors.length > 0) {
+            const desktopNavLinks = document.querySelectorAll('.desktop-nav .main-nav a');
+            
+            if (sections.length > 0 && desktopNavLinks.length > 0) {
                 const sectionObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const id = entry.target.getAttribute('id');
-                            navAnchors.forEach(anchor => {
+                            desktopNavLinks.forEach(anchor => {
                                 anchor.classList.remove('is-active');
                                 if (anchor.getAttribute('data-section') === id) {
                                     anchor.classList.add('is-active');
@@ -373,10 +351,22 @@
                 }, { rootMargin: '-50% 0px -50% 0px' });
                 sections.forEach(section => sectionObserver.observe(section));
             }
+
+            // 5. Efek Border pada Header saat Scroll
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                const scrollObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        body.classList.toggle('is-scrolled', !entry.isIntersecting);
+                    });
+                }, { rootMargin: "-100px 0px 0px 0px" });
+                scrollObserver.observe(heroSection);
+            }
         });
     </script>
 </body>
 </html>
+
 
 
 
