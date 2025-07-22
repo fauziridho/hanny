@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Henny Chang Neon — Seni Cahaya untuk Identitas Bisnis di Jakarta</title>
+    <meta name="description" content="Henny Chang adalah studio desain dan produksi neon box premium di Jakarta Timur. Kami mengubah ruang dan mendefinisikan brand melalui seni cahaya dengan kualitas artistik dan material terbaik.">
+    <meta name="keywords" content="neon box jakarta, custom neon sign, jasa pembuatan neon box, neon box jakarta timur, henny chang, desain interior, branding visual">
+    <meta name="author" content="Henny Chang">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* === PEMBARUAN: PALET WARNA PUTIH LEMBUT (APPLE LIGHT MODE) === */
+        :root {
+            --color-background: #F9F9F9; /* Putih lembut, tidak menyilaukan */
+            --color-surface: #FFFFFF;    /* Putih murni untuk card */
+            --color-text-primary: #1D1D1F; /* Hitam khas Apple */
+            --color-text-secondary: #6E6E73; /* Abu-abu untuk sub-teks */
+            --color-accent: #007AFF;      /* Biru khas Apple */
+            --color-border: #E5E5E5;      /* Abu-abu sangat terang untuk garis pemisah */
+
+            --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-size-base: 16px;
+            --font-size-sm: 0.875rem;
+            --font-size-md: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.5rem;
+            --font-size-2xl: 2.25rem;
+            --font-size-3xl: 3.5rem;
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2.5rem;
+            --spacing-xl: 4rem;
+            --spacing-2xl: 6rem;
+
+            --border-radius: 16px; /* Radius lebih besar untuk kesan lebih lembut */
+            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-fast: all 0.2s ease-in-out;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { font-size: var(--font-size-base); }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            font-family: var(--font-family-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        h1, h2, h3 { line-height: 1.2; font-weight: 700; color: var(--color-text-primary); letter-spacing: -0.02em; }
+        h1 { font-size: var(--font-size-3xl); }
+        h2 { font-size: var(--font-size-2xl); text-align: center; margin-bottom: var(--spacing-lg); }
+        h3 { font-size: var(--font-size-xl); margin-bottom: var(--spacing-sm); }
+        p { font-size: var(--font-size-lg); color: var(--color-text-secondary); max-width: 720px; }
+        .text-accent { color: var(--color-accent); }
+
+        .main-header {
+            padding: var(--spacing-sm) 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(249, 249, 249, 0.8); /* Latar belakang header semi-transparan */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        body.is-scrolled .main-header {
+            border-bottom-color: var(--color-border);
+        }
+
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--color-text-primary); letter-spacing: -0.05em; }
+        .logo span { color: var(--color-accent); }
+        .nav-wrapper { display: flex; align-items: center; gap: var(--spacing-lg); }
+        .main-nav { display: flex; align-items: center; gap: var(--spacing-sm); }
+        .main-nav a { color: var(--color-text-secondary); text-decoration: none; padding: var(--spacing-xs) var(--spacing-sm); font-weight: 500; transition: var(--transition-fast); position: relative; }
+        .main-nav a:hover { color: var(--color-text-primary); }
+        .main-nav a.is-active { color: var(--color-text-primary); font-weight: 600; }
+        .main-nav a.is-active::after { content: ''; position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; background-color: var(--color-accent); border-radius: 50%; }
+        
+        .btn { display: inline-block; padding: 12px 28px; font-size: var(--font-size-sm); font-weight: 600; border-radius: var(--border-radius); text-decoration: none; cursor: pointer; transition: var(--transition-smooth); border: 1px solid transparent; text-align: center; }
+        .btn-primary { background-color: var(--color-accent); color: #fff; }
+        .btn-primary:hover { background-color: #0066CC; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 122, 255, 0.2); }
+        .btn-primary:active { transform: translateY(-1px); }
+        
+        .hamburger-btn { display: none; flex-direction: column; justify-content: space-around; width: 24px; height: 24px; background: transparent; border: none; cursor: pointer; z-index: 1010; }
+        .hamburger-btn span { width: 24px; height: 2px; background: var(--color-text-primary); border-radius: 2px; transition: all 0.3s ease; }
+        body.nav-open .hamburger-btn span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        body.nav-open .hamburger-btn span:nth-child(2) { opacity: 0; }
+        body.nav-open .hamburger-btn span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Penyesuaian Aura Kursor untuk Tema Terang */
+        #cursor-aura {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 122, 255, 0.08), transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s, transform 0.1s linear;
+        }
+        
+        .hero { padding-top: calc(var(--spacing-2xl) + 80px); text-align: center; min-height: 90vh; display: flex; align-items: center; justify-content: center; }
+        .hero h1 { max-width: 900px; margin-bottom: var(--spacing-md); }
+        .hero p { font-size: var(--font-size-lg); margin-bottom: var(--spacing-lg); max-width: 650px; margin-left: auto; margin-right: auto; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg); }
+        .feature-card { background: var(--color-surface); padding: var(--spacing-lg); border-radius: var(--border-radius); border: 1px solid var(--color-border); text-align: left; transition: var(--transition-smooth); }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-subtle); border-color: transparent; }
+        .feature-card svg { width: 40px; height: 40px; margin-bottom: var(--spacing-md); color: var(--color-accent); }
+        .feature-card h3 { color: var(--color-text-primary); }
+        .feature-card p { font-size: var(--font-size-md); color: var(--color-text-secondary); }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-md); }
+        .gallery-item { position: relative; overflow: hidden; border-radius: var(--border-radius); cursor: pointer; aspect-ratio: 4 / 3; background-color: #e0e0e0; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease-out; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item .overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: var(--spacing-md); background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); color: white; transform: translateY(100%); transition: transform 0.3s ease-in-out; }
+        .gallery-item:hover .overlay { transform: translateY(0); }
+        .overlay h4 { font-size: var(--font-size-lg); margin-bottom: 0.2rem; }
+        .overlay p { font-size: var(--font-size-sm); color: #ccc; }
+
+        .process-steps { display: flex; flex-direction: column; gap: var(--spacing-lg); max-width: 800px; margin: var(--spacing-xl) auto 0 auto; }
+        .process-step { display: flex; align-items: flex-start; gap: var(--spacing-md); }
+        .step-number { font-size: 3rem; font-weight: 800; color: var(--color-accent); line-height: 1; min-width: 60px; text-align: center; }
+        .step-content h3 { margin-bottom: var(--spacing-xs); }
+        .step-content p { font-size: var(--font-size-md); }
+
+        .cta-section { background-color: var(--color-surface); border-radius: var(--border-radius); padding: var(--spacing-xl); text-align: center; border: 1px solid var(--color-border); }
+        .cta-section h2 { margin-bottom: var(--spacing-md); }
+        .cta-section p { margin-bottom: var(--spacing-lg); max-width: 600px; margin-left: auto; margin-right: auto;}
+
+        .main-footer { padding: var(--spacing-lg) 0; border-top: 1px solid var(--color-border); text-align: center; }
+        .main-footer p { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+        .main-footer .logo { margin-bottom: var(--spacing-sm); display: inline-block; }
+        .social-links { margin-top: var(--spacing-sm); }
+        .social-links a { color: var(--color-text-secondary); margin: 0 1rem; text-decoration: none; transition: color 0.2s ease; }
+        .social-links a:hover { color: var(--color-accent); }
+        
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1); }
+        .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            :root { --font-size-2xl: 1.75rem; --font-size-3xl: 2.5rem; }
+            .nav-wrapper {
+                position: fixed; top: 0; right: 0; height: 100vh; width: 70%; max-width: 300px;
+                background: var(--color-surface);
+                flex-direction: column; justify-content: center; align-items: center;
+                transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+                border-left: 1px solid var(--color-border);
+            }
+            body.nav-open .nav-wrapper { transform: translateX(0); }
+            .main-nav { flex-direction: column; gap: var(--spacing-md); }
+            .main-nav a { font-size: var(--font-size-lg); }
+            .nav-wrapper .btn { margin-top: var(--spacing-md); }
+            .hamburger-btn { display: flex; }
+            #cursor-aura { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor-aura"></div>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Henny<span>Chang</span></a>
+            <div class="nav-wrapper">
+                <nav class="main-nav">
+                    <a href="#keunggulan" data-section="keunggulan">Keunggulan</a>
+                    <a href="#galeri" data-section="galeri">Galeri Karya</a>
+                    <a href="#proses" data-section="proses">Proses Kami</a>
+                </nav>
+                <a href="#kontak" class="btn btn-primary nav-contact-btn">Hubungi Kami</a>
+            </div>
+            <button class="hamburger-btn" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container fade-in">
+                <h1>Transform Your Space. <br><span class="text-accent">Define Your Brand in Light.</span></h1>
+                <p class="mx-auto">
+                    Kami adalah studio desain dan produksi neon box premium di Jakarta Timur. Kami menciptakan karya seni cahaya yang ikonik untuk mengangkat identitas brand dan estetika ruang Anda.
+                </p>
+                <a href="#kontak" class="btn btn-primary">Mulai Proyek Anda</a>
+            </div>
+        </section>
+
+        <section id="keunggulan" class="container">
+            <h2 class="fade-in">Mengapa Memilih Henny Chang?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.553L16.5 21.75l-.398-1.197a3.375 3.375 0 00-2.455-2.456L12.75 18l1.197-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.197a3.375 3.375 0 002.456 2.455L20.25 18l-1.197.398a3.375 3.375 0 00-2.455 2.456z" /></svg>
+                    <h3>Desain Artistik & Konsultatif</h3>
+                    <p>Kami bukan sekadar produsen. Kami adalah partner desain Anda, memastikan setiap karya selaras dengan visi dan brand Anda.</p>
+                </div>
+                <div class="feature-card fade-in" style="transition-delay: 100ms;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h3>Material Kualitas Premium</h3>
+                    <p>Dari akrilik presisi hingga lampu LED yang awet dan hemat energi, kami hanya menggunakan material terbaik untuk hasil yang memukau dan tahan lama.</p>
+                </div>
+                <div class="feature-card fade-in" style="transition-delay: 200ms;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" /></svg>
+                    <h3>Pengerjaan Presisi & Detail</h3>
+                    <p>Dengan teknologi modern dan tangan terampil, kami memastikan setiap lekukan dan sambungan dikerjakan dengan sempurna.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri" class="container">
+            <h2 class="fade-in">Galeri Karya Seni Cahaya</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in" style="transition-delay: 100ms;">
+                    <img src="https://images.unsplash.com/photo-1581333122152-5b21a71b453e?w=800&auto=format&fit=crop" alt="Neon sign 'Good Vibes Only' di dinding bata">
+                    <div class="overlay"><h4>Kafe Urban</h4><p>Jakarta Selatan</p></div>
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1543974330-822e839f3468?w=800&auto=format&fit=crop" alt="Neon sign berbentuk petir di dinding gelap">
+                    <div class="overlay"><h4>Toko Retail Modern</h4><p>Pusat Jakarta</p></div>
+                </div>
+                <div class="gallery-item fade-in" style="transition-delay: 300ms;">
+                    <img src="https://images.unsplash.com/photo-1599580506231-f3c0d18b6a22?w=800&auto=format&fit=crop" alt="Neon sign tulisan 'Create' di kantor kreatif">
+                    <div class="overlay"><h4>Ruang Kerja Kreatif</h4><p>Jakarta Timur</p></div>
+                </div>
+                 <div class="gallery-item fade-in" style="transition-delay: 400ms;">
+                    <img src="https://images.unsplash.com/photo-1611243094128-2651953a4e59?w=800&auto=format&fit=crop" alt="Neon sign custom untuk acara pernikahan">
+                    <div class="overlay"><h4>Dekorasi Acara</h4><p>Acara Korporat & Pernikahan</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proses" class="container">
+            <h2 class="fade-in">Dari Ide Menjadi Karya Nyata</h2>
+            <div class="process-steps">
+                <div class="process-step fade-in" style="transition-delay: 100ms;">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Konsultasi & Konsep</h3>
+                        <p>Kita mulai dengan diskusi mendalam untuk memahami visi, brand, dan ruang Anda. Dari sini, kami kembangkan konsep desain awal.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in" style="transition-delay: 200ms;">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Desain & Mockup</h3>
+                        <p>Tim kami akan membuat visualisasi dan mockup digital yang detail, sehingga Anda bisa melihat bagaimana karya akan terlihat sebelum masuk produksi.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in" style="transition-delay: 300ms;">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Produksi Presisi</h3>
+                        <p>Setelah desain disetujui, kami mulai proses produksi menggunakan material terbaik dan kontrol kualitas yang ketat di setiap tahap.</p>
+                    </div>
+                </div>
+                <div class="process-step fade-in" style="transition-delay: 400ms;">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Instalasi & Finalisasi</h3>
+                        <p>Tim profesional kami akan melakukan instalasi di lokasi Anda dengan rapi dan aman, memastikan karya seni cahaya Anda menyala sempurna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="container">
+            <div class="cta-section fade-in">
+                <h2>Siap Mengubah Ruang Anda?</h2>
+                <p>Ceritakan visi Anda kepada kami. Dapatkan konsultasi desain dan penawaran harga gratis, tanpa komitmen.</p>
+                <a href="https://wa.me/6281234567890?text=Halo%20Henny%20Chang,%20saya%20tertarik%20untuk%20membuat%20neon%20box." class="btn btn-primary" target="_blank">Hubungi via WhatsApp</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <a href="#" class="logo">Henny<span>Chang</span></a>
+            <p>Studio Desain & Produksi Neon Box Premium<br>Domisili Usaha: Jakarta Timur, Indonesia</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Email</a>
+                <a href="#">Portfolio</a>
+            </div>
+            <p style="margin-top: 1.5rem; opacity: 0.5;">&copy; <script>document.write(new Date().getFullYear())</script> Henny Chang Neon. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const lenis = new Lenis();
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            const cursorAura = document.getElementById('cursor-aura');
+            window.addEventListener('mousemove', (e) => {
+                cursorAura.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            });
+            
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const body = document.body;
+            const navLinks = document.querySelectorAll('.main-nav a, .nav-contact-btn');
+            
+            hamburgerBtn.addEventListener('click', () => {
+                body.classList.toggle('nav-open');
+            });
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    body.classList.remove('nav-open');
+                });
+            });
+
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Menambahkan delay staggered untuk animasi yang lebih organik
+                        entry.target.style.transitionDelay = `${index * 100}ms`;
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            fadeInElements.forEach(el => observer.observe(el));
+
+            const sections = document.querySelectorAll('section[id]');
+            const navAnchors = document.querySelectorAll('.main-nav a');
+            
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navAnchors.forEach(anchor => {
+                            anchor.classList.remove('is-active');
+                            if (anchor.getAttribute('data-section') === id) {
+                                anchor.classList.add('is-active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+            sections.forEach(section => sectionObserver.observe(section));
+            
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    body.classList.toggle('is-scrolled', !entry.isIntersecting);
+                });
+            }, { rootMargin: "-100px 0px 0px 0px" });
+            // Amati elemen pertama setelah header, yaitu hero section
+            const firstSection = document.querySelector('main section:first-of-type');
+            if(firstSection) {
+                scrollObserver.observe(firstSection);
+            }
+        });
+    </script>
+</body>
+</html>
